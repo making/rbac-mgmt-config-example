@@ -1,0 +1,21 @@
+---
+rolebindings:
+- namespace: default
+  users:
+  - name: peter@example.com
+    clusterroles: [ admin ]
+- namespace: project-x
+  create_namespace: true
+  users:
+  - name: alex@example.com
+    clusterroles: [ edit ]
+  - name: oliver@example.com
+    clusterroles: [ view ]
+  - name: peter@example.com
+    clusterroles: [ admin ]
+  groups:
+  - name: administrators
+    clusterroles: [ cluster-admin ]
+  serviceaccounts:
+  - name: ci-bot
+    clusterroles: [ edit ]
